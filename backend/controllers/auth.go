@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -12,7 +13,14 @@ import (
 )
 
 var DB *gorm.DB
-var jwtKey = []byte("my_secret_key")
+
+func getJwtKey() []byte {
+	secret := os.Getenv("JWT_SECRET")
+	if secret == "" {
+		return []byte("my_secret_key")
+	}
+	return []byte(secret)
+}
 
 type RegisterInput struct {
 	Email    string `json:"email" binding:"required,email"`
@@ -89,7 +97,7 @@ func Login(c *gin.Context) {
 	}
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
-	tokenString, err := token.SignedString(jwtKey)
+	tokenString, err := token.SignedString(getJwtKey())
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to generate token"})
 		return

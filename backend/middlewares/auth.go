@@ -2,6 +2,7 @@ package middlewares
 
 import (
 	"net/http"
+	"os"
 	"strings"
 
 	"github.com/gin-gonic/gin"
@@ -30,7 +31,11 @@ func AuthMiddleware(roles ...models.Role) gin.HandlerFunc {
 		claims := &controllers.Claims{}
 
 		token, err := jwt.ParseWithClaims(tokenString, claims, func(token *jwt.Token) (interface{}, error) {
-			return []byte("my_secret_key"), nil // Use same key as controller
+			secret := os.Getenv("JWT_SECRET")
+			if secret == "" {
+				secret = "my_secret_key"
+			}
+			return []byte(secret), nil
 		})
 
 		if err != nil || !token.Valid {
