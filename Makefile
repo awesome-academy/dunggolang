@@ -11,6 +11,10 @@ db-down:
 run-backend:
 	cd backend && go run main.go
 
+seed-sql:
+	docker exec -i sun_booking_db psql -U root -d sun_booking < db/seed.sql
+	@echo "✅ SQL seed completed!"
+
 # Frontend commands
 run-frontend:
 	cd frontend && pnpm run dev
