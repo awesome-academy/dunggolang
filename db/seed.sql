@@ -139,3 +139,25 @@ INSERT INTO likes (user_id, review_id, created_at) VALUES
 (4, 1,  NOW() - INTERVAL '24 days'),
 (4, 6,  NOW() - INTERVAL '52 days'),
 (4, 10, NOW() - INTERVAL '9 days');
+
+-- ============================================================
+-- REVIEWS: place, food, news
+-- ============================================================
+INSERT INTO reviews (user_id, target_type, target_id, content, rating, likes_count, created_at, updated_at) VALUES
+-- Place reviews
+(1, 'place', 0, 'Hội An Ancient Town is absolutely magical — the lantern-lit streets at night are unforgettable. A must-visit for anyone coming to Vietnam.', 5, 18, NOW() - INTERVAL '20 days', NOW() - INTERVAL '20 days'),
+(2, 'place', 0, 'Halong Bay took my breath away. The limestone karsts rising out of the emerald water is something I''ll never forget.', 5, 24, NOW() - INTERVAL '15 days', NOW() - INTERVAL '15 days'),
+(3, 'place', 0, 'Mã Pí Lèng Pass in Hà Giang is hands-down the most scenic road in Southeast Asia. Jaw-dropping views around every corner.', 5, 30, NOW() - INTERVAL '10 days', NOW() - INTERVAL '10 days'),
+(4, 'place', 0, 'Phong Nha caves are incredible — the scale is hard to comprehend until you''re inside. Book the Paradise Cave tour, totally worth it.', 4, 12, NOW() - INTERVAL '5 days', NOW() - INTERVAL '5 days'),
+(1, 'place', 0, 'Đà Lạt is the perfect escape from the heat. The flower gardens and French colonial architecture give it a totally unique vibe.', 4, 9, NOW() - INTERVAL '3 days', NOW() - INTERVAL '3 days'),
+-- Food reviews
+(2, 'food', 0, 'Bún bò Huế is the most underrated noodle dish in Vietnam. Spicy, rich broth with thick noodles — absolutely addictive!', 5, 21, NOW() - INTERVAL '18 days', NOW() - INTERVAL '18 days'),
+(3, 'food', 0, 'Had the best Bánh mì of my life from a tiny street stall in Hội An for 20,000 VND. Crispy, loaded with pâté and fresh herbs.', 5, 35, NOW() - INTERVAL '12 days', NOW() - INTERVAL '12 days'),
+(4, 'food', 0, 'Cà phê trứng (egg coffee) in Hanoi''s Old Quarter is a revelation. Sweet, creamy and rich — unlike any coffee I''ve had before.', 5, 28, NOW() - INTERVAL '8 days', NOW() - INTERVAL '8 days'),
+(1, 'food', 0, 'Cao Lầu in Hội An is unique — it can only be made authentically there due to the local well water. The smoky pork and crunchy croutons are perfect.', 4, 14, NOW() - INTERVAL '4 days', NOW() - INTERVAL '4 days'),
+(2, 'food', 0, 'Don''t leave Vietnam without trying Bánh xèo (sizzling pancakes). Wrap them in rice paper with fresh herbs and dip in fish sauce — heaven!', 5, 19, NOW() - INTERVAL '2 days', NOW() - INTERVAL '2 days'),
+-- News reviews
+(3, 'news', 0, 'Vietnam just opened a new direct flight route from Hanoi to Da Nang operated by Bamboo Airways. Ticket prices are very competitive — great for domestic travel.', 4, 8, NOW() - INTERVAL '14 days', NOW() - INTERVAL '14 days'),
+(4, 'news', 0, 'Phú Quốc has officially launched its 30-day e-visa waiver for 80 countries. This is a game changer for international tourism to the island.', 5, 22, NOW() - INTERVAL '9 days', NOW() - INTERVAL '9 days'),
+(1, 'news', 0, 'Vietnam''s tourism sector hit a record 17.5 million international arrivals in 2024, cementing its place as Southeast Asia''s rising travel star.', 5, 16, NOW() - INTERVAL '6 days', NOW() - INTERVAL '6 days'),
+(2, 'news', 0, 'The new Ninh Bình UNESCO World Heritage application has been submitted. If approved, it would join Halong Bay as Vietnam''s iconic heritage destination.', 4, 11, NOW() - INTERVAL '1 days', NOW() - INTERVAL '1 days');
