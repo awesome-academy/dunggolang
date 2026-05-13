@@ -57,6 +57,7 @@ export default function ToursPage() {
           <div className="flex gap-4">
             {localStorage.getItem('token') ? (
               <>
+                <Link to="/reviews" className="text-gray-500 hover:text-indigo-600 text-sm font-medium">Reviews</Link>
                 <Link to="/user/dashboard" className="text-gray-600 hover:text-indigo-600 font-medium">My Account</Link>
                 <button
                   onClick={() => { localStorage.removeItem('token'); navigate('/login') }}
@@ -64,9 +65,12 @@ export default function ToursPage() {
                 >Logout</button>
               </>
             ) : (
-              <Link to="/login" className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-1.5 rounded-lg text-sm">
-                Sign In
-              </Link>
+              <>
+                <Link to="/reviews" className="text-gray-500 hover:text-indigo-600 text-sm font-medium">Reviews</Link>
+                <Link to="/login" className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-1.5 rounded-lg text-sm">
+                  Sign In
+                </Link>
+              </>
             )}
           </div>
         </div>
